@@ -1,6 +1,5 @@
 import pytest
 from selenium import webdriver
-from roughrider.selenium import ServerThread
 
 
 class WSGISelenium:
@@ -31,7 +30,7 @@ class WSGISelenium:
         )
 
     @pytest.fixture(scope="class")
-    def browser_driver(request):
+    def browser_driver(self, request):
         browser = request.config.getoption("--browser")
         if browser == 'firefox':
             options = webdriver.FirefoxOptions()
@@ -53,13 +52,6 @@ class WSGISelenium:
         request.cls.driver = driver
         yield
         driver.close()
-
-
-    @pytest.fixture(scope='session')
-    def web_server(request) -> str:
-        server = ServerThread()
-        yield server
-        server.stop()
 
 
 wsgi_selenium = WSGISelenium()

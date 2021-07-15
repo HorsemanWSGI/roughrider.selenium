@@ -11,19 +11,15 @@ class ServerThread(threading.Thread):
     """Run WSGI server on a background thread.
     """
 
-    def __init__(self, host: str = HOST):
+    def __init__(self, app, host: str = HOST):
         threading.Thread.__init__(self)
+        self.app = app
         self.host = host
         self.daemon = True
-        self.app = None
-
-    def start(self, app):
-        self.app = app
-        super().start()
 
     def run(self):
         """WSGI server."""
-        parts = urlparse(self.hostbase)
+        parts = urlparse(self.host)
         host, port = parts.netloc.split(":")
 
         try:
