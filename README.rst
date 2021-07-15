@@ -1,4 +1,4 @@
-reiter.events
-*************
+roughrider.selenium
+*******************
 
-Events subscribe/notify meta component.
+Selenium testing for WSGI apps.
