@@ -39,8 +39,8 @@ class WSGISelenium:
         else:
             options = webdriver.ChromeOptions()
             options.add_argument("--remote-debugging-port=9222")
-            options.add_arguments("--disable-gpu")
-            options.add_arguments("--disable-dev-shm-usage")
+            options.add_argument("--disable-gpu")
+            options.add_argument("--disable-dev-shm-usage")
             args = {'chrome_options': options}
             factory = webdriver.Chrome
 
