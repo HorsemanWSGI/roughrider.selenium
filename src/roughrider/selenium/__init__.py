@@ -38,6 +38,7 @@ class WSGISelenium:
             factory = webdriver.Firefox
         else:
             options = webdriver.ChromeOptions()
+            options.add_argument("--remote-debugging-port=9222")
             args = {'chrome_options': options}
             factory = webdriver.Chrome
 
