@@ -15,12 +15,12 @@ test_requires = [
 
 
 setup(
-    name='roughrider.selenium',
+    name='nva.selenium',
     version=version,
-    author='Souheil CHELFOUH',
+    author='Novareto GmbH',
     author_email='trollfot@gmail.com',
-    url='http://gitweb.dolmen-project.org',
-    download_url='http://pypi.python.org/pypi/roughrider.selenium',
+    url='https://github.com/novareto/nva.selenium',
+    download_url='http://pypi.python.org/pypi/nva.selenium',
     description='Testing WSGI applications with Selenium',
     long_description=(open("README.rst").read() + "\n" +
                       open(os.path.join("docs", "HISTORY.rst")).read()),
@@ -29,11 +29,14 @@ setup(
         'Environment :: Web Environment',
         'Intended Audience :: Developers',
         'License :: OSI Approved :: Zope Public License',
-        'Programming Language :: Python:: 3 :: Only',
+        'Programming Language :: Python :: 3.8',
+        'Programming Language :: Python :: 3.9',
+        'Programming Language :: Python :: 3.10',
+        'Topic :: Internet :: WWW/HTTP :: WSGI',
     ],
     packages=find_packages('src'),
     package_dir={'': 'src'},
-    namespace_packages=['roughrider',],
+    namespace_packages=['nva',],
     include_package_data=True,
     zip_safe=False,
     install_requires=install_requires,
@@ -41,7 +44,7 @@ setup(
     },
     entry_points={
         "pytest11": [
-            "roughrider.selenium = roughrider.selenium:wsgi_selenium"
+            "nva.selenium = nva.selenium:wsgi_selenium"
         ],
     }
 )
