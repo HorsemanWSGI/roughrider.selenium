@@ -1,4 +1,4 @@
-import bjoern
+import waitress 
 import threading
 from urllib.parse import urlparse
 from typing import Callable
@@ -23,7 +23,7 @@ class ServerThread(threading.Thread):
         host, port = parts.netloc.split(":")
 
         try:
-            bjoern.run(self.app, host, int(port))
+            waitress.serve(self.app, host, int(port))
         except Exception as e:
             import traceback
             traceback.print_exc()
