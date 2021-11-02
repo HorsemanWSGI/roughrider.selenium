@@ -34,7 +34,7 @@ class WSGISelenium:
         browser = request.config.getoption("--browser")
         if browser == 'firefox':
             options = webdriver.FirefoxOptions()
-            args = {'firefox_options': options}
+            args = {'options': options}
             factory = webdriver.Firefox
         else:
             options = webdriver.ChromeOptions()

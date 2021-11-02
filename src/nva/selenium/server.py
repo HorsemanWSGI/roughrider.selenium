@@ -23,7 +23,7 @@ class ServerThread(threading.Thread):
         host, port = parts.netloc.split(":")
 
         try:
-            waitress.serve(self.app, host, int(port))
+            waitress.serve(self.app, host=host, port=int(port))
         except Exception as e:
             import traceback
             traceback.print_exc()
